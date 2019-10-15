@@ -1,0 +1,25 @@
+Delegates 
+- type send data 
+
+Event Handlers
+
+Methods that respond when an event occurs
+
+
+      
+1.HandleEvent ---> Addlitesner ---->  2.Event EventHandler
+1.HandleEvent <---  Invoke     <----  2.Event EventHandler
+
+2.HandleEvent ---> Addlitesner ---->  3.Event EventHandler
+2.HandleEvent <---  Invoke     <----  3.Event EventHandler
+
+..........................................................
+
+-   Unity Event
+    using UnityEngine.Event;
+
+    UnityEvent <T0>   // None pharamiter
+    UnityEvent <T1>   // None pharamiter
+    UnityEvent <T2>   // None pharamiter
+    UnityEvent <T3>   // None pharamiter
+    UnityEvent <T4>   // None pharamiter
