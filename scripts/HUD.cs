@@ -9,27 +9,32 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
     // score support
-     Text scoreText;
-     int score = 0;
+    Text scoreText;
+    int score = 0;
     const string ScorePrefix = "Score: ";
 
-	/// <summary>
-	/// Use this for initialization
-	/// </summary>
-	void Start()
-	{
+    /// <summary>
+    /// Use this for initialization
+    /// </summary>
+    void Start()
+    {
         // initialize score text
         scoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Text>();
-        scoreText.text = ScorePrefix + score;		
-	}
+        scoreText.text = ScorePrefix + score;
+        //Fish game obj 
+        //  GameObject.FindGameObjectWithTag("Fish");
+        Fish fish = GameObject.FindGameObjectWithTag("Fish").GetComponent<Fish>();
+        fish.AddPointAddedListener(onPointAdded);
+    }
 
     /// <summary>
     /// Updates the score
     /// </summary>
     /// <param name="points">points to add</param>
-    public  void AddPoints(int points)
+    public void onPointAdded(int point)
     {
-        score += points;
+        score += point;
         scoreText.text = ScorePrefix + score;
     }
+
 }

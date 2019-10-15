@@ -144,7 +144,10 @@ public class Fish : MonoBehaviour
 
 			// update score
             // HUD.AddPoints(bearPoints);
-
+			pointAddedEvent.Invoke(bearPoints);
+			
+		}else{
+			hpAddedEvent.Invoke();
 		}
 	}
 	
@@ -174,9 +177,12 @@ public class Fish : MonoBehaviour
 		transform.position = position;
 	}
 	PointAddedEvent pointAddedEvent = new PointAddedEvent();
+	HpAddedEvent hpAddedEvent = new HpAddedEvent();
 	//  You Can Have any function event
 	public void AddPointAddedListener(UnityAction <int> listener){
 		pointAddedEvent.AddListener(listener);
 	}
-	
+	public void HpAddedListener(UnityAction listenerHp){
+		hpAddedEvent.AddListener(listenerHp);
+	}
 }
